@@ -17,27 +17,7 @@ A multi-threaded order matching engine with ZeroMQ integration for real-time tra
 1. Clone the repository:
    ```bash
    git clone https://github.com/JULIASIV/order-matching-engine.git
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+--file structure
    order-matching-engine/
 ├── src/
 │   ├── client/
