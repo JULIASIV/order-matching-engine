@@ -1,0 +1,56 @@
+order-matching-engine/
+├── CMakeLists.txt
+├── cmake/
+│   ├── FindZeroMQ.cmake
+│   └── Conan.cmake
+├── include/
+│   ├── engine/
+│   │   ├── Order.hpp
+│   │   ├── OrderBook.hpp
+│   │   ├── MatchingEngine.hpp
+│   │   ├── Types.hpp
+│   │   └── Constants.hpp
+│   ├── networking/
+│   │   ├── ZmqPublisher.hpp
+│   │   ├── ZmqSubscriber.hpp
+│   │   └── MessageTypes.hpp
+│   ├── persistence/
+│   │   ├── StorageInterface.hpp
+│   │   └── RedisStorage.hpp
+│   ├── monitoring/
+│   │   ├── PerformanceMonitor.hpp
+│   │   └── SystemHealth.hpp
+│   └── utils/
+│       ├── LockFreeQueue.hpp
+│       ├── Logger.hpp
+│       └── ThreadPool.hpp
+├── src/
+│   ├── engine/
+│   │   ├── OrderBook.cpp
+│   │   ├── MatchingEngine.cpp
+│   │   └── main.cpp
+│   ├── networking/
+│   │   ├── ZmqPublisher.cpp
+│   │   └── ZmqSubscriber.cpp
+│   ├── persistence/
+│   │   └── RedisStorage.cpp
+│   └── utils/
+│       ├── LockFreeQueue.cpp
+│       ├── Logger.cpp
+│       └── ThreadPool.cpp
+├── tests/
+│   ├── unit/
+│   │   ├── TestOrderBook.cpp
+│   │   ├── TestMatchingEngine.cpp
+│   │   └── TestLockFreeQueue.cpp
+│   └── integration/
+│       ├── TestZmqIntegration.cpp
+│       └── TestPersistence.cpp
+├── scripts/
+│   ├── build.sh
+│   ├── run_tests.sh
+│   └── deploy.sh
+├── config/
+│   ├── config.yaml
+│   └── logging.conf
+└── Dockerfile

@@ -1,0 +1,17 @@
+network:
+  publish_endpoint: "tcp://*:5555"
+  subscribe_endpoint: "tcp://localhost:5556"
+  
+performance:
+  matching_threads: 4
+  io_threads: 2
+  queue_size: 10000
+
+persistence:
+  redis_host: "localhost"
+  redis_port: 6379
+  redis_db: 0
+
+logging:
+  level: "info"
+  file: "/var/log/order-matching-engine.log"
