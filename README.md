@@ -22,6 +22,124 @@ A low-latency, multi-threaded order matching engine designed for electronic trad
 - Redis++ (C++ Redis client)
 - Boost (system, thread)
 
+### structer 
+order-matching-engine/
+├── .github/
+│   ├── workflows/
+│   │   ├── ci-cd.yml
+│   │   └── benchmarks.yml
+│   └── ISSUE_TEMPLATE/
+├── cmake/
+│   ├── FindZeroMQ.cmake
+│   ├── FindCppRedis.cmake
+│   └── Conan.cmake
+├── config/
+│   ├── config.yaml
+│   ├── logging.yaml
+│   └── instruments.csv
+├── docs/
+│   ├── API.md
+│   ├── DEPLOYMENT.md
+│   ├── PERFORMANCE.md
+│   └── ARCHITECTURE.md
+├── include/
+│   ├── engine/
+│   │   ├── OrderBook.hpp
+│   │   ├── MatchingEngine.hpp
+│   │   ├── Order.hpp
+│   │   ├── Types.hpp
+│   │   ├── Constants.hpp
+│   │   └── Strategies/
+│   ├── networking/
+│   │   ├── ZmqInterface.hpp
+│   │   ├── Protocol.hpp
+│   │   ├── FixAdapter.hpp
+│   │   └── WebSocketInterface.hpp
+│   ├── persistence/
+│   │   ├── StorageInterface.hpp
+│   │   ├── RedisStorage.hpp
+│   │   ├── ChronicleQueue.hpp
+│   │   └── SnapshotManager.hpp
+│   ├── risk/
+│   │   ├── RiskEngine.hpp
+│   │   ├── PositionManager.hpp
+│   │   └── LimitsChecker.hpp
+│   ├── monitoring/
+│   │   ├── Metrics.hpp
+│   │   ├── Telemetry.hpp
+│   │   └── HealthCheck.hpp
+│   ├── utils/
+│   │   ├── LockFreeQueue.hpp
+│   │   ├── ThreadPool.hpp
+│   │   ├── Logger.hpp
+│   │   ├── Config.hpp
+│   │   ├── Clock.hpp
+│   │   └── Statistics.hpp
+│   └── api/
+│       ├── RestApi.hpp
+│       └── AdminInterface.hpp
+├── src/
+│   ├── engine/
+│   │   ├── OrderBook.cpp
+│   │   ├── MatchingEngine.cpp
+│   │   ├── main.cpp
+│   │   └── Strategies/
+│   ├── networking/
+│   │   ├── ZmqInterface.cpp
+│   │   ├── Protocol.cpp
+│   │   ├── FixAdapter.cpp
+│   │   └── WebSocketInterface.cpp
+│   ├── persistence/
+│   │   ├── RedisStorage.cpp
+│   │   ├── ChronicleQueue.cpp
+│   │   └── SnapshotManager.cpp
+│   ├── risk/
+│   │   ├── RiskEngine.cpp
+│   │   ├── PositionManager.cpp
+│   │   └── LimitsChecker.cpp
+│   ├── monitoring/
+│   │   ├── Metrics.cpp
+│   │   ├── Telemetry.cpp
+│   │   └── HealthCheck.cpp
+│   ├── utils/
+│   │   ├── LockFreeQueue.cpp
+│   │   ├── ThreadPool.cpp
+│   │   ├── Logger.cpp
+│   │   ├── Config.cpp
+│   │   ├── Clock.cpp
+│   │   └── Statistics.cpp
+│   └── api/
+│       ├── RestApi.cpp
+│       └── AdminInterface.cpp
+├── tests/
+│   ├── unit/
+│   │   ├── engine/
+│   │   ├── networking/
+│   │   ├── risk/
+│   │   └── utils/
+│   ├── integration/
+│   │   ├── engine_network/
+│   │   ├── persistence/
+│   │   └── risk_engine/
+│   ├── performance/
+│   │   ├── latency/
+│   │   ├── throughput/
+│   │   └── memory/
+│   └── fuzz/
+├── scripts/
+│   ├── deployment/
+│   ├── monitoring/
+│   ├── benchmarks/
+│   └── provisioning/
+├── third_party/
+│   ├── conanfile.txt
+│   └── patches/
+├── Dockerfile
+├── docker-compose.yml
+├── CMakeLists.txt
+└── README.md
+
+
 ### Build Steps
 
 ```bash
