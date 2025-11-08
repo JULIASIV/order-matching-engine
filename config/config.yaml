@@ -1,0 +1,57 @@
+# config/config.yaml
+
+engine:
+  processing_threads: 8
+  matching_threads: 4
+  queue_size: 1000000
+  response_queue_size: 500000
+  snapshot_interval: 300  # seconds
+
+network:
+  publish_endpoint: "tcp://*:5555"
+  subscribe_endpoint: "tcp://*:5556"
+  rest_api_endpoint: "0.0.0.0:8080"
+  fix_enabled: true
+  fix_config_file: "config/fix.cfg"
+
+persistence:
+  redis:
+    host: "localhost"
+    port: 6379
+    database: 0
+    password: "your_redis_password"
+  postgresql:
+    connection_string: "postgresql://engine_user:password@localhost/matching_engine"
+  chronicle:
+    base_path: "/var/lib/order-matching-engine/chronicle"
+
+risk:
+  max_position_per_symbol: 100000
+  max_notional_per_user: 10000000.0
+  max_order_size: 10000
+  var_confidence_level: 0.95
+  circuit_breaker_enabled: true
+
+monitoring:
+  prometheus_endpoint: "0.0.0.0:9090"
+  metrics_collection_interval: 5s
+  health_check_interval: 30s
+
+logging:
+  level: "info"  # debug, info, warning, error
+  file: "/var/log/order-matching-engine/engine.log"
+  max_size: "100M"
+  max_files: 10
+  format: "json"
+
+instruments:
+  - symbol: "AAPL"
+    tick_size: 0.01
+    lot_size: 1
+    min_order_size: 1
+    max_order_size: 100000
+  - symbol: "GOOGL"
+    tick_size: 0.01
+    lot_size: 1
+    min_order_size: 1
+    max_order_size: 100000

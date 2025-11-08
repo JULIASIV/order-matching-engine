@@ -1,0 +1,25 @@
+# kubernetes/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-matching-engine
+  namespace: trading
+  labels:
+    app: order-matching-engine
+spec:
+  selector:
+    app: order-matching-engine
+  ports:
+  - name: zmq-pub
+    port: 5555
+    targetPort: 5555
+  - name: zmq-sub
+    port: 5556
+    targetPort: 5556
+  - name: rest-api
+    port: 8080
+    targetPort: 8080
+  - name: metrics
+    port: 9090
+    targetPort: 9090
+  type: ClusterIP
